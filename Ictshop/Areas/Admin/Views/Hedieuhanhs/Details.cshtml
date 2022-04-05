@@ -1,0 +1,26 @@
+﻿@model Ictshop.Models.Hedieuhanh
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>CHI TIẾT</h2>
+
+<div>
+    <hr />
+    <div class="caption">
+
+        <p>
+            Tên loại:
+            @Html.DisplayFor(model => model.Tenhdh)
+        </p>
+
+        <p>
+            <a href="#" class="btn btn-primary" role="button">Delete</a>
+            @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-info" })
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Mahdh }) |
+
+        </p>
+    </div>
+</div>

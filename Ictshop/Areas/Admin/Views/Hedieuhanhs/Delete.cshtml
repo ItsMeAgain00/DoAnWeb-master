@@ -1,0 +1,27 @@
+﻿@model Ictshop.Models.Hedieuhanh
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>XÓA</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <div class="caption">
+
+        <p>
+            Tên loại:
+            @Html.DisplayFor(model => model.Tenhdh)
+        </p>
+
+        <p>
+            <a href="#" class="btn btn-primary" role="button">Delete</a>
+            @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-info"})
+
+        </p>
+    </div>
+
+</div>
