@@ -12,19 +12,25 @@ namespace Ictshop.Controllers
         Qlbanhang db = new Qlbanhang();
 
         // GET: Sanpham
+        public ActionResult DanhSach()
+        {
+            var sp = db.Sanphams.ToList();
+            return View(sp);
+
+        }
         public ActionResult dtiphonepartial()
         {
-            var ip = db.Sanphams.Where(n=>n.Mahang==2).Take(4).ToList();
+            var ip = db.Sanphams.Where(n=>n.Mahdh==2).Take(4).ToList();
            return PartialView(ip);
         }
         public ActionResult dtsamsungpartial()
         {
-            var ss = db.Sanphams.Where(n => n.Mahang == 1).Take(4).ToList();
+            var ss = db.Sanphams.Where(n => n.Mahdh == 1).Take(4).ToList();
             return PartialView(ss);
         }
         public ActionResult dtxiaomipartial()
         {
-            var mi = db.Sanphams.Where(n => n.Mahang == 3).Take(4).ToList();
+            var mi = db.Sanphams.Where(n => n.Mahdh == 3).Take(4).ToList();
             return PartialView(mi);
         }
 

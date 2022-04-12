@@ -2,22 +2,21 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Danh sách đơn hàng</h2>
-
+<h2>Đơn hàng</h2>
 
 <table class="table">
     <tr>
         <th>
-           Họ tên
+            @Html.DisplayNameFor(model => model.Nguoidung.Hoten)
         </th>
         <th>
-            Ngày đặt
+            @Html.DisplayNameFor(model => model.Ngaydat)
         </th>
         <th>
-            Tình trạng đơn hàng
+            @Html.DisplayNameFor(model => model.Tinhtrang)
         </th>
         <th></th>
     </tr>
@@ -41,10 +40,8 @@
             }
         </td>
         <td>
-            <button class="btn-primary">
-                @Html.ActionLink("Chi tiết", "Details", new { id = item.Madon }, new { @style = "color:white;" })
-            </button>
-
+            @Html.ActionLink("Chi tiết", "XuLyIndex", new { id = item.Madon }) |
+            @Html.ActionLink("Xử lý", "XuLy", new { id = item.Madon})
         </td>
     </tr>
 }

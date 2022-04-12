@@ -1,4 +1,4 @@
-namespace Ictshop.Models
+﻿namespace Ictshop.Models
 {
     using System;
     using System.Collections.Generic;
@@ -22,12 +22,13 @@ namespace Ictshop.Models
         public string Hoten { get; set; }
 
         [StringLength(50)]
+        [EmailAddress]
         public string Email { get; set; }
 
-        [StringLength(10)]
+        [StringLength(10, ErrorMessage = "Số điện thoại phải có 10 số", MinimumLength = 10)]
         public string Dienthoai { get; set; }
 
-        [StringLength(50)]
+        [StringLength(50, ErrorMessage = "Mật khẩu phải có ít nhất 6 ký tự", MinimumLength = 6)]
         public string Matkhau { get; set; }
 
         public int? IDQuyen { get; set; }

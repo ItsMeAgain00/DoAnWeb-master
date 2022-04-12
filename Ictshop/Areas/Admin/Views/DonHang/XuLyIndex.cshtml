@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Ictshop.Models.Chitietdonhang>
+
+@{
+    ViewBag.Title = "XuLyIndex";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi tiết đơn hàng</h2>
+
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Sanpham.Anhbia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sanpham.Tensp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Soluong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dongia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Thanhtien)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Sanpham.Anhbia)*@
+                    <img src="@Url.Content("~/HinhanhSP/" +item.Sanpham.Anhbia)" width="50" height="50" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sanpham.Tensp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Soluong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dongia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Thanhtien)
+                </td>
+            </tr>
+         }
+    </table>
+</div>
+@*<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        @Html.ActionLink("Xử lý", "XuLy")
+    </div>
+</div>*@
+

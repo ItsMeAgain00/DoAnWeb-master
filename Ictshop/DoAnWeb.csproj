@@ -135,6 +135,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\DonHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\HangsanxuatsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HedieuhanhsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
@@ -314,6 +315,8 @@
     <Content Include="Areas\Admin\Views\PhanQuyens\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\User\DangXuat.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\XuLyIndex.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -349,6 +352,7 @@
     <Content Include="Web.Config" />
     <Content Include="Views\Donhangs\Details.cshtml" />
     <Content Include="Views\Donhangs\Index.cshtml" />
+    <Content Include="Views\Sanpham\DanhSach.cshtml" />
     <None Include="Web.Debug.Config">
       <DependentUpon>Web.Config</DependentUpon>
     </None>

@@ -1,0 +1,112 @@
+﻿@model IEnumerable<Ictshop.Models.Sanpham>
+
+@{
+    ViewBag.Title = "DanhSach";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h3>DANH SÁCH SẢN PHẨM</h3>
+    <div class="well well-sm text-right">
+        <strong>Chọn kiểu hiển thị</strong>
+        <div class="btn-group">
+            <a href="" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list"> </span>Dạng danh sách</a> <a href="" id="grid" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th"></span>Dạng lưới</a>
+        </div>
+    </div>
+    <div class="row list-group">
+        @foreach (var item in Model)
+        {
+            <div class="item  col-xs-3 col-lg-3">
+                <div class="thumbnail">
+                    <img class="group list-group-image" src=@Url.Content("~/HinhanhSP/"+item.Anhbia) alt="Sản phẩm 1" width="300">
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">@Html.DisplayFor(modelItem => item.Tensp)</h4>
+                        <p class="group inner list-group-item-text">@Html.DisplayNameFor(model => model.Mota)</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <p class="lead">@Html.DisplayFor(modelItem => item.Giatien)</p>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <a class="btn btn-success" href="@Url.Action("xemchitiet", new {@Masp=item.Masp })">Chi tiết</a>
+                                @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = item.Masp, @strURL = Request.Url.ToString() }))
+                                {
+                                    <input type="submit" value="Mua hàng" id="bgnGioHang" />
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Hangsanxuat.Tenhang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hedieuhanh.Tenhdh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tensp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Giatien)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Soluong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Anhbia)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hangsanxuat.Tenhang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hedieuhanh.Tenhdh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tensp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Giatien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soluong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Anhbia)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Masp }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Masp }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Masp })
+            </td>
+        </tr>
+    }
+
+    </table>*@
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">$(document).ready(function () {
+        $('#list').click(function (event) { event.preventDefault(); $('#products .item').addClass('list-group-item'); });
+        $('#grid').click(function (event) {
+            event.preventDefault(); $('#products .item').removeClass('list-group-item');
+            $('#products .item').addClass('grid-group-item');
+        });
+    });</script>

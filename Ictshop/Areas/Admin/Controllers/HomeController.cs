@@ -92,19 +92,40 @@ namespace Ictshop.Areas.Admin.Controllers
 
         // POST: Admin/Home/Edit/5
         [HttpPost]
-        public ActionResult Edit(Sanpham sanpham)
+        public ActionResult Edit(int id, FormCollection collection)
         {
             try
             {
+                var sp = db.Sanphams.First(m => m.Masp == id);
+                var tensp = collection["Tensp"];
+                var giatien = Convert.ToDecimal(collection["Giatien"]);
+                var soluong = Convert.ToInt32(collection["Soluong"]);
+                var mahang = collection["Mahang"];
+                var maloai = collection["Mahdh"];
+                var anh = collection["Anhbia"];
+                var mota = collection["Mota"];
+                sp.Masp = id;
+                
+                sp.Tensp = tensp;
+                sp.Giatien = giatien;
+                sp.Soluong = soluong;
+                sp.Mahang = Convert.ToInt32(mahang);
+                sp.Mahdh = Convert.ToInt32(maloai);
+                sp.Anhbia = anh;
+                sp.Mota = mota;
+                UpdateModel(sp);
+                    //db.SubmitChanges();
+                    
+                
                 // Sửa sản phẩm theo mã sản phẩm
-                var oldItem = db.Sanphams.Find(sanpham.Masp);
-                oldItem.Tensp = sanpham.Tensp;
-                oldItem.Giatien = sanpham.Giatien;
-                oldItem.Soluong = sanpham.Soluong;
-                oldItem.Mahang = sanpham.Mahang;
-                oldItem.Mahdh = sanpham.Mahdh;
-                oldItem.Anhbia = sanpham.Anhbia;
-                oldItem.Mota = sanpham.Mota;
+                //var oldItem = db.Sanphams.Find(sanpham.Masp);
+                //oldItem.Tensp = sanpham.Tensp;
+                //oldItem.Giatien = sanpham.Giatien;
+                //oldItem.Soluong = sanpham.Soluong;
+                //oldItem.Mahang = sanpham.Mahang;
+                //oldItem.Mahdh = sanpham.Mahdh;
+                //oldItem.Anhbia = sanpham.Anhbia;
+                //oldItem.Mota = sanpham.Mota;
                 // lưu lại
                 db.SaveChanges();
                 // xong chuyển qua index

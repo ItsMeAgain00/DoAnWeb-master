@@ -57,11 +57,11 @@
             <input type="file" name="fileUpload" id="fileUpload" accept="image/*"
                    style="display:none;" />
             <input type="button" id="btnUpload" value="Chọn" class="btn btn-success" />
-            <img src="@Model.Anhbia" width="320" height="480" id="pictureUpload" />
+            <img src="@Url.Content("~/HinhanhSP/" +@Model.Anhbia)" width="320" height="480" id="pictureUpload" />
         </div>
     </div>
     @section upload
-                {
+{
         <script>
             $(function () {
                 $('#btnUpload').click(function () {
